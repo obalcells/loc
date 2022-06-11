@@ -30,6 +30,7 @@ int main() {
         q.pop();
         for(int b : adj[a]) if(d[b] == -1) {
             d[b] = d[a] + 1;
+            p[b] = a;
             q.push(b);
         } 
     }
@@ -39,6 +40,21 @@ int main() {
     } else {
         cout << d[f] << endl;        
     }
+
+    p[s] = -1;
+
+    a = f;
+
+    while(a != -1) {
+        a = p[a];
+    }
+
+    // 2 -> 7 -> 6 -> 3
+    //
+    // p[3] = 6
+    // p[6] = 7
+    // p[7] = 2
+    // p[2] = -1
     
     return 0;
 }

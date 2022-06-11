@@ -21,15 +21,12 @@ int main() {
         adj[b].push_back(make_pair(a, color));
     }
 
-    // visited[a][c] = true si he visitado el nodo a desde una arista de color c
-
     for(int i = 0; i < n; i++) {
         visited[i][0] = false;
         visited[i][1] = false;
         visited[i][2] = false;
     }
 
-    // nodo, color de la ultima arista para llegar aqui
     queue<pair<int,int> > q;
 
     visited[0][0] = true;
@@ -52,13 +49,11 @@ int main() {
             int b = edge.first;
             int color2 = edge.second;
 
-            // no puede haber dos aristas consecutivas del mismo color
             if(color != color2 && !visited[b][color2]) {
                 p[b][color2] = make_pair(a, color);
                 visited[b][color2] = true;
                 q.push(make_pair(b, color2));
 
-                // 0 -> (n-1)
                 if(b == (n - 1)) {
                     found = true;
                     break;

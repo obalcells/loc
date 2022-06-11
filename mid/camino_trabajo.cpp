@@ -46,9 +46,6 @@ int main() {
 
     int min_path_length = 999999;
 
-    // nexo es el primer nodo a partir del cual
-    // artem y bob van juntos
-
     for(int i = 0; i < n; i++) {
         if(d1[i] + d2[i] + d3[i] < min_path_length) {
             min_path_length = d1[i] + d2[i] + d3[i];
